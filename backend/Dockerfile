@@ -12,6 +12,13 @@ RUN curl -L -o /tmp/docker-$DOCKER_VERSION.tgz https://get.docker.com/builds/Lin
     && mv /tmp/docker/* /usr/local/bin \
     && rm -rf /tmp/*
 
+ENV DOCKER_MACHINE_VERSION="0.13.0"
+
+RUN curl -L https://github.com/docker/machine/releases/download/v${DOCKER_MACHINE_VERSION}/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine \
+    && chmod +x /tmp/docker-machine \
+    && mv /tmp/docker-machine /usr/local/bin/docker-machine \
+    && rm -rf /tmp/*
+
 # Install Semantic Release
 
 ENV SEMANTIC_RELEASE_VERSION=1.6.2
