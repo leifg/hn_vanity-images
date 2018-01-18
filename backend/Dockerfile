@@ -1,4 +1,4 @@
-FROM leifg/elixir:1.5.3
+FROM leifg/elixir:1.6.0
 LABEL maintainer="Leif Gensert <leif@leif.io>"
 
 RUN apk add --no-cache libc6-compat build-base curl postgresql-client bash git openssh
@@ -13,7 +13,6 @@ RUN curl -L -o /tmp/docker-$DOCKER_VERSION.tgz https://get.docker.com/builds/Lin
     && rm -rf /tmp/*
 
 # Docker Cloud
-
 
 RUN apk -Uuv --no-cache add python py-pip
 
